@@ -1,16 +1,25 @@
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+
+
+from .models import Dish
 
 # Create your views here.
 
-def my_view(request):
-    return JsonResponse({'message':'Helllo'})
+def get_by_id(request, id):
+   # dish = Dish.objects.filter(pk=id.first())
+    dish = get_object_or_404(Dish, pk=id)
+    return render(
+        request,
+        'catalogs/dish_detail.html',
+        {
+        'dish' : dish,
+        } )
 
-def get_by_id(request, id: int):
-    return JsonResponse({'data': id})
-
-def hello(request, name: str):
-    return HttpResponse({f'<h1>hello, {name}</h1>'})
 
 def get_catalog(request):
+    dishes = Dish.objects.all()
+    content = {
+        'dishes' : dishes
+    }
     return render(request, 'catalogs/catlist.html' )

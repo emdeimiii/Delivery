@@ -1,11 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> Тут список меню</h1>
-</body>
-</html>
+{% extends "base.html" %}
+<title>{% block title %} Меню доставки {%endblock%}</title>
+{%block content%} <h1> Список блюд</h1> 
+                <div class="col-lg-3 col-md-6">
+                    {%for dish in dishes%}
+                    <div class="card food-card h-100">
+                        <h5>{{dish.name}}</h5>
+                        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400" alt="Суши" class="card-img-top">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Сет Филадельфия</h5>
+                                <span class="price-tag">899 ₽</span>
+                            </div>
+                            <p class="card-text text-muted">Лосось, сливочный сыр, огурец, 8 шт</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="delivery-time">
+                                    <i class="bi bi-clock"></i> 30-35 мин
+                                </span>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="bi bi-plus"></i> Добавить
+                                </button>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+
+{%endblock%}

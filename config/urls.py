@@ -20,9 +20,6 @@ from apps.catalogs.views import *
 
 urlpatterns = [
      path('admin/', admin.site.urls),
-     path('hello/', my_view),
-     path('hello/<int:id>', get_by_id),
-     path('hello/<str:name>', hello),
 
     path('catalogs/', include('apps.catalogs.urls'))
 ]

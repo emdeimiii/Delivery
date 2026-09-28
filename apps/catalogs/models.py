@@ -35,11 +35,11 @@ class Dish(models.Model):
         decimal_places=2,
         verbose_name='Цена',)
     
-    # image = models.ImageField(
-    #     upload_to='dishes/',
-    #     blank=True,
-    #     null=True,
-    #     verbose_name='Фото',)
+    image = models.ImageField(
+        upload_to='dishes/',
+        blank=True,
+        null=True,
+        verbose_name='Фото',)
     
     is_available = models.BooleanField(default=True,verbose_name='Доступно',)
 

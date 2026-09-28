@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+<title>{% block title %} Меню доставки {%endblock%}</title>
+{%block content%}
+{%if dish%}
+<h1> блюдо на заказ {{dish.name|upper}}</h1>
+{{dish.price}}
+<br>
+{{dish.create_at|date'd.m.Y'}}
+{%endif%}
+{%endblock%}

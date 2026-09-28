@@ -25,7 +25,7 @@ class DishAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at')
     fieldsets = (('Основное', {'fields': ('category', 'name', 'slug', 'description')}),
     ('Цена и наличие', {'fields': ('price', 'is_available')}),
-    #('Медиа', {'fields': ('image',)}),
+    ('Медиа', {'fields': ('image',)}),
     ('Служебное', {'fields': ('created_at', 'updated_at'),'classes': ('collapse',),}),
 )
 
