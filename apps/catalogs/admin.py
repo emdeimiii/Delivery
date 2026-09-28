@@ -15,7 +15,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class DishAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'price', 'is_available', 'created_at')
+    list_display = ('name', 'image', 'category', 'price', 'is_available', 'created_at')
     list_filter = ('is_available', 'category')
     search_fields = ('name', 'description')
     list_editable = ('price', 'is_available')
