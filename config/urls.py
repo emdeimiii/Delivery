@@ -22,7 +22,8 @@ from config import settings
 
 urlpatterns = [
      path('admin/', admin.site.urls),
-     path('catalogs/', include('apps.catalogs.urls'))
+     path('catalogs/', include('apps.catalogs.urls')),
+     path('accounts/', include('apps.accounts.urls'))
 ]
 
 if settings.DEBUG:

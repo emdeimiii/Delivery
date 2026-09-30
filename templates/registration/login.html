@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h1 class="mb-4">Вход</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_username" class="form-label">Логин</label>
+                <input type="text" name="username" id="id_username" class="form-control" required>
+
+            </div>
+            <div class="mb-3">
+                <label for="id_password" class="form-label">Пароль</label>
+                <input type="password" name="password" id="id_password" class="form-control" required>
+
+            </div>
+            {% if user.is_authenticated %}
+            <span class="text-light">
+                Привет, <strong>{{ user.username }}</strong>
+            </span>
+            <form method="post" action="{% url 'accounts:logout' %}" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-light btn-sm">
+                    Выйти
+                </button>
+                <button type="submit" class="btn btn-primary w-100">Войти</button>
+
+            </form>
+            {% else %}
+            <a href="{% url 'accounts:login' %}" class="btn btn-outline-light btn-sm">
+                Войти
+            </a>
+            <a href="{% url 'accounts:register' %}" class="btn btn-warning btn-sm">
+                Регистрация
+            </a>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}

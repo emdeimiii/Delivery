@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.catalogs',
     'apps.accounts',
+    'apps.carts',
+    
 ]
 
 MIDDLEWARE = [
@@ -124,7 +126,7 @@ STATICFILES_DIRS =[
 
 
 MEDIA_URL = '/media/'
-MEADIA_ROOT =[BASE_DIR / 'media']
+MEADIA_ROOT =[BASE_DIR / 'media', ]
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
@@ -134,3 +136,6 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+LOGIN_URL='accounts/catalog/'
+LOGIN_REDIRECT_URL = 'catalog/'
+LOGOUT_REDIRECT_URL = 'catalog/'
