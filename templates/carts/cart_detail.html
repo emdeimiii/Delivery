@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}Корзина{% endblock %}
+{% block content %}
+<h1 class="mb-4">Корзина</h1>
+
+{% if items %}
+<div class="table-responsive">
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th>Блюдо</th>
+                <th>Категория</th>
+                <th class="text-end">Цена</th>
+                <th class="text-center">Кол-во</th>
+                <th class="text-end">Стоимость</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>
+                    <a href="{% url 'catalog:dish_detail' item.dish.slug %}">
+                        {{ item.dish.name }}
+                    </a>
+                </td>
+                <td>{{ item.dish.category.name }}</td>
+                <td class="text-end">{{ item.dish.price|floatformat:2 }} ₽</td>
+                <td class="text-center" style="width: 150px;">
+                    <form method="post" action="{% url 'carts:update' item.id %}" class="d-flex gap-1">
+                        {% csrf_token %}
+                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                            class="form-control form-control-sm">
+                        <button type="submit" class="btn btn-sm btn-outline-primary">
+                            ↻
+                        </button>
+                    </form>
+                </td>
+                <td class="text-end">{{ item.subtotal|floatformat:2 }} ₽</td>
+                <td class="text-end">
+                    <form method="post" action="{% url 'carts:remove' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                            ×
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="4" class="text-end">Итого:</th>
+                <th class="text-end">{{ cart.total|floatformat:2 }} ₽</th>
+
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="d-flex justify-content-end gap-2 mt-3">
+    <a href="{% url 'catalog:dish_list' %}" class="btn btn-outline-secondary">
+        ← Продолжить выбор
+    </a>
+    <a href="{% url 'orders:create %}" class="btn btn-success">
+        Оформить заказ →
+    </a>
+</div>
+{% else %}
+<div class="alert alert-info">
+    Корзина пуста.
+    <a href="{% url 'catalog:dish_list' %}">Перейти в меню</a>.
+</div>
+{% endif %}
+{% endblock %}

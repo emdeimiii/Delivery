@@ -1,219 +1,225 @@
 {% extends "base.html" %}
-<title>{% block title %} Меню доставки {%endblock%}</title>
-{%block content%}
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="hero-title">Доставка еды<br>за 30 минут</h1>
-                    <p class="hero-subtitle">
-                        Лучшие рестораны вашего города с доставкой до двери. Быстро, вкусно и удобно!
-                    </p>
-                    <div class="search-box">
-                        <div class="d-flex align-items-center">
-                            <input type="text" placeholder="Введите адрес доставки...">
-                            <button type="button">Найти</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center mt-5 mt-lg-0">
-                    <i class="bi bi-clock" style="font-size: 15rem; opacity: 0.3;"></i>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Categories Section -->
-    <section id="categories" class="categories-section">
-        <div class="container">
-            <h2 class="section-title">Категории блюд</h2>
-            <div class="row g-4">
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="bi bi-egg-fried"></i>
-                        </div>
-                        <div class="category-title">Пицца</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="bi bi-cup-hot"></i>
-                        </div>
-                        <div class="category-title">Бургеры</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="bi bi-basket"></i>
-                        </div>
-                        <div class="category-title">Суши</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="bi bi-shop"></i>
-                        </div>
-                        <div class="category-title">Паста</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="bi bi-flower1"></i>
-                        </div>
-                        <div class="category-title">Салаты</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="bi bi-cup-straw"></i>
-                        </div>
-                        <div class="category-title">Напитки</div>
+{% block title %}Меню доставки{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="hero-title">Доставка еды<br>за 30 минут</h1>
+                <p class="hero-subtitle">
+                    Лучшие рестораны вашего города с доставкой до двери. Быстро, вкусно и удобно!
+                </p>
+
+                {# ✅ Вместо формы "В корзину" — ссылка в меню #}
+                <a href="#popular" class="btn btn-success btn-lg mt-3">
+                    🍽️ Смотреть меню
+                </a>
+
+                <div class="search-box mt-3">
+                    <div class="d-flex align-items-center">
+                        <input type="text" placeholder="Введите адрес доставки...">
+                        <button type="button">Найти</button>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                <i class="bi bi-clock" style="font-size: 15rem; opacity: 0.3;"></i>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Popular Items Section -->
-    <section id="popular" class="popular-section">
-        <div class="container">
-            <h2 class="section-title">Популярные блюда</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="food-card">
-                        <div class="food-image"></div>
-                        <div class="food-content">
-                            <h5 class="food-title">Пепперони Пицца</h5>
-                            <p class="food-description">Классическая пицца с пепперони и моцареллой</p>
-                            <div class="food-footer">
-                                <span class="food-price">599 ₽</span>
-                                <button class="btn-add">
-                                    <i class="bi bi-plus"></i> Добавить
-                                </button>
-                            </div>
-                        </div>
+<!-- Categories Section -->
+<section id="categories" class="categories-section">
+    <div class="container">
+        <h2 class="section-title">Категории блюд</h2>
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="bi bi-egg-fried"></i>
                     </div>
+                    <div class="category-title">Пицца</div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="food-card">
-                        <div class="food-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                        <div class="food-content">
-                            <h5 class="food-title">Чизбургер Делюкс</h5>
-                            <p class="food-description">Сочный бургер с двойным сыром и беконом</p>
-                            <div class="food-footer">
-                                <span class="food-price">449 ₽</span>
-                                <button class="btn-add">
-                                    <i class="bi bi-plus"></i> Добавить
-                                </button>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="bi bi-cup-hot"></i>
                     </div>
+                    <div class="category-title">Бургеры</div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="food-card">
-                        <div class="food-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                        <div class="food-content">
-                            <h5 class="food-title">Сет Филадельфия</h5>
-                            <p class="food-description">32 кусочка роллов с лососем и сливочным сыром</p>
-                            <div class="food-footer">
-                                <span class="food-price">899 ₽</span>
-                                <button class="btn-add">
-                                    <i class="bi bi-plus"></i> Добавить
-                                </button>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="bi bi-basket"></i>
                     </div>
+                    <div class="category-title">Суши</div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="food-card">
-                        <div class="food-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
-                        <div class="food-content">
-                            <h5 class="food-title">Цезарь с курицей</h5>
-                            <p class="food-description">Свежий салат с куриным филе и соусом цезарь</p>
-                            <div class="food-footer">
-                                <span class="food-price">399 ₽</span>
-                                <button class="btn-add">
-                                    <i class="bi bi-plus"></i> Добавить
-                                </button>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="bi bi-shop"></i>
                     </div>
+                    <div class="category-title">Паста</div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="food-card">
-                        <div class="food-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);"></div>
-                        <div class="food-content">
-                            <h5 class="food-title">Паста Карбонара</h5>
-                            <p class="food-description">Итальянская паста с беконом и сливочным соусом</p>
-                            <div class="food-footer">
-                                <span class="food-price">549 ₽</span>
-                                <button class="btn-add">
-                                    <i class="bi bi-plus"></i> Добавить
-                                </button>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="bi bi-flower1"></i>
                     </div>
+                    <div class="category-title">Салаты</div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="food-card">
-                        <div class="food-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
-                        <div class="food-content">
-                            <h5 class="food-title">Тирамису</h5>
-                            <p class="food-description">Классический итальянский десерт с кофе</p>
-                            <div class="food-footer">
-                                <span class="food-price">299 ₽</span>
-                                <button class="btn-add">
-                                    <i class="bi bi-plus"></i> Добавить
-                                </button>
-                            </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="bi bi-cup-straw"></i>
+                    </div>
+                    <div class="category-title">Напитки</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Items Section -->
+<section id="popular" class="popular-section">
+    <div class="container">
+        <h2 class="section-title">Популярные блюда</h2>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="food-card">
+                    <div class="food-image"></div>
+                    <div class="food-content">
+                        <h5 class="food-title">Пепперони Пицца</h5>
+                        <p class="food-description">Классическая пицца с пепперони и моцареллой</p>
+                        <div class="food-footer">
+                            <span class="food-price">599 ₽</span>
+                            <button class="btn-add">
+                                <i class="bi bi-plus"></i> Добавить
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- How it works Section -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">Как это работает</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="step-card">
-                        <div class="step-icon">
-                            <i class="bi bi-search"></i>
+            <div class="col-md-6 col-lg-4">
+                <div class="food-card">
+                    <div class="food-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="food-content">
+                        <h5 class="food-title">Чизбургер Делюкс</h5>
+                        <p class="food-description">Сочный бургер с двойным сыром и беконом</p>
+                        <div class="food-footer">
+                            <span class="food-price">449 ₽</span>
+                            <button class="btn-add">
+                                <i class="bi bi-plus"></i> Добавить
+                            </button>
                         </div>
-                        <h5 class="step-title">Выберите блюдо</h5>
-                        <p>Просмотрите меню и выберите любимые блюда из лучших ресторанов</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="step-card">
-                        <div class="step-icon">
-                            <i class="bi bi-credit-card"></i>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="food-card">
+                    <div class="food-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="food-content">
+                        <h5 class="food-title">Сет Филадельфия</h5>
+                        <p class="food-description">32 кусочка роллов с лососем и сливочным сыром</p>
+                        <div class="food-footer">
+                            <span class="food-price">899 ₽</span>
+                            <button class="btn-add">
+                                <i class="bi bi-plus"></i> Добавить
+                            </button>
                         </div>
-                        <h5 class="step-title">Оплатите онлайн</h5>
-                        <p>Безопасная оплата картой или наличными при получении</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="step-card">
-                        <div class="step-icon">
-                            <i class="bi bi-truck"></i>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="food-card">
+                    <div class="food-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                    <div class="food-content">
+                        <h5 class="food-title">Цезарь с курицей</h5>
+                        <p class="food-description">Свежий салат с куриным филе и соусом цезарь</p>
+                        <div class="food-footer">
+                            <span class="food-price">399 ₽</span>
+                            <button class="btn-add">
+                                <i class="bi bi-plus"></i> Добавить
+                            </button>
                         </div>
-                        <h5 class="step-title">Получите доставку</h5>
-                        <p>Курьер доставит заказ прямо к вашей двери за 30 минут</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="food-card">
+                    <div class="food-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);"></div>
+                    <div class="food-content">
+                        <h5 class="food-title">Паста Карбонара</h5>
+                        <p class="food-description">Итальянская паста с беконом и сливочным соусом</p>
+                        <div class="food-footer">
+                            <span class="food-price">549 ₽</span>
+                            <button class="btn-add">
+                                <i class="bi bi-plus"></i> Добавить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="food-card">
+                    <div class="food-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                    <div class="food-content">
+                        <h5 class="food-title">Тирамису</h5>
+                        <p class="food-description">Классический итальянский десерт с кофе</p>
+                        <div class="food-footer">
+                            <span class="food-price">299 ₽</span>
+                            <button class="btn-add">
+                                <i class="bi bi-plus"></i> Добавить
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<section id="how-it-works" class="how-it-works">
+    <div class="container">
+        <h2 class="section-title">Как это работает</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <h5 class="step-title">Выберите блюдо</h5>
+                    <p>Просмотрите меню и выберите любимые блюда из лучших ресторанов</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="bi bi-credit-card"></i>
+                    </div>
+                    <h5 class="step-title">Оплатите онлайн</h5>
+                    <p>Безопасная оплата картой или наличными при получении</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <h5 class="step-title">Получите доставку</h5>
+                    <p>Курьер доставит заказ прямо к вашей двери за 30 минут</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-{%endblock%}
+{% endblock %}
